@@ -61,7 +61,7 @@ function Todocomponent() {
     <div>
       <div className="todoWrapper container-fluid">
         <h1>
-          ToDo App <FontAwesomeIcon className="clr" icon={faCheckCircle} />
+          Todo App <FontAwesomeIcon className="clr" icon={faCheckCircle} />
         </h1>
         <div className="inputbox">
           <input
