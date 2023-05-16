@@ -46,16 +46,8 @@
         padding: 0.1rem 1rem;
         border-radius: 0.3rem;
     }
-    .deletetaskbtn{
-        background-color: rgb(228, 51, 51);
-            color: #fff;
-            font-size: 1rem;
-            outline: none;
-            border: none;
-            padding: 0.1rem 1rem;
-            border-radius: 0.3rem;
-            margin: .2rem 0;
-    }
+         
+    
     ul{
         list-style: none;
         min-height: 12rem;
@@ -98,4 +90,29 @@
 .completed{
     text-decoration:line-through ;
     color: rgba(0,0,0,.5);
+}
+
+.clr{
+    color: #0082c8;
+}
+
+@mixin completebtn{
+    color: #fff;
+        font-size: 1rem;
+        outline: none;
+        border: none;
+        padding: 0.1rem 1rem;
+        border-radius: 0.3rem;
+        margin: .2rem 0;
+}
+
+.bgBlue{
+    @include completebtn();
+    background-color: #0082c8;
+    transition: .5s linear;
+}
+.bgRed{
+    @include completebtn();
+    background-color: red;
+    transition: .5s linear;
 }

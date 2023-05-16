@@ -4,7 +4,7 @@ import { addtodo, deletetodo, toggletodo } from "./todoSlice";
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 import  '../styling/inputstyles.css'
-import {  faTrash } from '@fortawesome/free-solid-svg-icons'
+import {    faCheckCircle, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
@@ -47,6 +47,11 @@ function Todocomponent() {
       console.log("Error adding document:", error);
     }
   };
+  const handleKeyPress=(e)=>{
+    if(e.key==='Enter'){
+        handleAddTodo()
+    }
+  }
 
   const handleToggleTodo = (todoId) => {
     dispatch(toggletodo(todoId));
@@ -58,15 +63,16 @@ function Todocomponent() {
   return (
     <div>
       <div className="todoWrapper container-fluid">
-        <h1>ToDo App</h1>
+        <h1>ToDo App <FontAwesomeIcon className="clr" icon={faCheckCircle}/></h1>
         <div className="inputbox">
           <input
           type="text"
           value={newTodo}
           placeholder="Add your new todo"
+          onKeyDown={handleKeyPress}
           onChange={(e) => setnewTodo(e.target.value)}
         />
-        <button className="addtaskbtn" onClick={handleAddTodo}>+</button>
+        <button className="addtaskbtn" onClick={handleAddTodo} >+</button>
         </div>
         <ul>
           {todos.map((todo) => (
@@ -78,7 +84,7 @@ function Todocomponent() {
               >
                 {todo.text}{" "}
               </span>
-              <button className="deletetaskbtn" onClick={() => handleDelete(todo.id)}><FontAwesomeIcon icon={faTrash} /></button>
+              <button className={todo.completed?'bgBlue':'bgRed'} onClick={() => handleDelete(todo.id)}>{todo.completed ?<FontAwesomeIcon icon={faCheckCircle} />:<FontAwesomeIcon icon={faTrash} />}</button>
             </li>
           ))}
         </ul>
