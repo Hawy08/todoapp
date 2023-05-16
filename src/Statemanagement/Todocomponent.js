@@ -4,12 +4,19 @@ import { addtodo, deletetodo, toggletodo } from "./todoSlice";
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 import  '../styling/inputstyles.css'
+import {  faTrash } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+
 
 function Todocomponent() {
   const [newTodo, setnewTodo] = useState("");
   const todos = useSelector((state) => state.todos);
   const dispatch = useDispatch();
-
+  const filterIncompletedTodos=(todos)=> todos &&
+    !todos.completed
+  const incompletedTaskCounts= todos.filter(filterIncompletedTodos).length;
+  
   useEffect(() => {
     const fetchTodo = async () => {
       const querySnapshot = await getDocs(collection(db, "todos"));
@@ -23,6 +30,9 @@ function Todocomponent() {
   },[dispatch]);
 
   const handleAddTodo = async () => {
+    if(newTodo.trim()===''){
+      return
+    }
     const todoData = {
       id: Date.now(),
       text: newTodo,
@@ -47,29 +57,32 @@ function Todocomponent() {
   };
   return (
     <div>
-      <div>
-        <input
+      <div className="todoWrapper container-fluid">
+        <h1>ToDo App</h1>
+        <div className="inputbox">
+          <input
           type="text"
           value={newTodo}
-          placeholder="add todo"
+          placeholder="Add your new todo"
           onChange={(e) => setnewTodo(e.target.value)}
         />
-        <button onClick={handleAddTodo}>Add Task</button>
+        <button className="addtaskbtn" onClick={handleAddTodo}>+</button>
+        </div>
         <ul>
           {todos.map((todo) => (
             <li key={todo.id}>
               <span
-                style={{
-                  textDecoration: todo.completed ? "line-through" : "none",
-                }}
+                
+                  className={todo.completed ?'completed':'' }
                 onClick={() => handleToggleTodo(todo.id)}
               >
                 {todo.text}{" "}
               </span>
-              <button onClick={() => handleDelete(todo.id)}>Delete</button>
+              <button className="deletetaskbtn" onClick={() => handleDelete(todo.id)}><FontAwesomeIcon icon={faTrash} /></button>
             </li>
           ))}
         </ul>
+        <p className="footer">You have <span>{incompletedTaskCounts}</span> pending task{incompletedTaskCounts!==1?"s":''}!</p>
       </div>
     </div>
   );

@@ -1,7 +1,95 @@
-input {
-  background-color: transparent;
-  font-size: 1.5rem;
-  border: solid rgba(255, 51, 255, 0.2) 1px;
-  border-radius: 1rem;
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 9px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #eae4ec;
+  border-radius: 6px;
+  border: 3px solid #ffffff;
+}
+
+.todoWrapper {
+  border: solid transparent 2px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
   padding: 0.5rem 0.5rem;
+  border-radius: 0.2rem;
+  width: 280px;
+}
+.todoWrapper h1 {
+  font-family: "Poppins";
+  padding-bottom: 1rem;
+}
+.todoWrapper input {
+  background-color: transparent;
+  font-size: 1rem;
+  border: none;
+  font-family: "Poppins";
+  border-radius: 0.4rem;
+  padding: 0.5rem 0.5rem;
+  outline: none;
+}
+.todoWrapper .addtaskbtn {
+  background-color: #0082c8;
+  color: #fff;
+  font-size: 2rem;
+  outline: none;
+  border: none;
+  padding: 0.1rem 1rem;
+  border-radius: 0.3rem;
+}
+.todoWrapper .deletetaskbtn {
+  background-color: rgb(228, 51, 51);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  border: none;
+  padding: 0.1rem 1rem;
+  border-radius: 0.3rem;
+  margin: 0.2rem 0;
+}
+.todoWrapper ul {
+  list-style: none;
+  min-height: 12rem;
+  max-height: 25rem;
+  overflow-y: scroll;
+  padding-bottom: 0.2rem;
+}
+.todoWrapper ul > li {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.1rem 0.2rem;
+  margin-top: 0.3rem;
+  border-radius: 0.4rem;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+  font-family: "Poppins";
+}
+.todoWrapper .inputbox {
+  border: solid rgba(0, 0, 0, 0.25) 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 0.4rem;
+}
+
+.footer {
+  margin-top: 0.2rem;
+  font-family: "Poppins";
+  text-align: center;
+}
+.footer span {
+  font-weight: 600;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: rgba(0, 0, 0, 0.5);
 }/*# sourceMappingURL=inputstyles.css.map */

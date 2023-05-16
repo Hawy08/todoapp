@@ -1,7 +1,8 @@
 import Todocomponent from "./Statemanagement/Todocomponent";
+import './styling/App.css'
 function App() {
   return (
-    <div className="App">
+    <div className="App container-fluid">
       <Todocomponent/>
     </div>
   );

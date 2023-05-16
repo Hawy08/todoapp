@@ -1,0 +1,15 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.App {
+  background: linear-gradient(to left, #667db6, #0082c8, #0082c8, #667db6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  box-sizing: border-box;
+  margin: 0;
+  overflow: hidden;
+}/*# sourceMappingURL=App.css.map */
