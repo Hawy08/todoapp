@@ -1,118 +1,115 @@
 @import "../styling/variables.scss";
 
-
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-    width: 9px;
+  width: 9px;
 }
 
 *::-webkit-scrollbar-track {
-    background: #ffffff;
+  background: #ffffff;
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: #eae4ec;
-    border-radius: 6px;
-    border: 3px solid #ffffff;
+  background-color: #eae4ec;
+  border-radius: 6px;
+  border: 3px solid #ffffff;
 }
 
-
-.todoWrapper{
-    border: solid transparent 2px;
-    background-color:rgba(255,255,255);
-    box-shadow: 2px 2px 8px rgba(0,0,0,.25);
-    padding: $paddingY $paddingX;
-    border-radius: 0.2rem;
-    width:280px ;
-    h1{
-        font-family: 'Poppins';
-        padding-bottom: 1rem;
-    }
-    input {
-            background-color: transparent;
-            font-size: 1rem;
-            border:  none;
-            font-family: 'Poppins';
-            border-radius: 0.4rem;
-            padding: $paddingX $paddingY;
-            outline: none;
-        }
-        .addtaskbtn{
-        background-color: #0082c8;
-        color: #fff;
-        font-size: 2rem;
-        outline: none;
-        border: none;
-        padding: 0.1rem 1rem;
-        border-radius: 0.3rem;
-    }
-         
-    
-    ul{
-        list-style: none;
-        min-height: 12rem;
-            max-height: 25rem;
-            overflow-y: scroll;
-            padding-bottom: .2rem;
-    }
-
-    ul>li{
-        background-color: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: .1rem .2rem;
-        margin-top: .3rem;
-        border-radius: .4rem;
-        box-shadow: 2px 2px 8px rgba(0,0,0,.25);
-        font-family: 'Poppins';
-    }
-
-    .inputbox{
-        border: solid rgba(0,0,0,0.25) 2px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        overflow: hidden;
-        border-radius: 0.4rem;
-    }
-}
-
-.footer{
-    margin-top: .2rem;
-    font-family: 'Poppins';
-    text-align: center;
-    span{
-        font-weight: 600;
-    }
-}
-
-.completed{
-    text-decoration:line-through ;
-    color: rgba(0,0,0,.5);
-}
-
-.clr{
-    color: #0082c8;
-}
-
-@mixin completebtn{
-    color: #fff;
-        font-size: 1rem;
-        outline: none;
-        border: none;
-        padding: 0.1rem 1rem;
-        border-radius: 0.3rem;
-        margin: .2rem 0;
-}
-
-.bgBlue{
-    @include completebtn();
+.todoWrapper {
+  border: solid transparent 2px;
+  background-color: rgba(255, 255, 255);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+  padding: $paddingY $paddingX;
+  border-radius: 0.2rem;
+  width: 280px;
+  h1 {
+    font-family: "Poppins";
+    padding-bottom: 1rem;
+  }
+  input {
+    background-color: transparent;
+    font-size: 1rem;
+    border: none;
+    font-family: "Poppins";
+    border-radius: 0.4rem;
+    padding: $paddingX $paddingY;
+    outline: none;
+  }
+  .addtaskbtn {
     background-color: #0082c8;
-    transition: .5s linear;
+    color: #fff;
+    font-size: 2rem;
+    outline: none;
+    border: none;
+    padding: 0.1rem 1rem;
+    border-radius: 0.3rem;
+  }
+
+  ul {
+    list-style: none;
+    min-height: 12rem;
+    max-height: 25rem;
+    overflow-y: scroll;
+    padding-bottom: 0.2rem;
+  }
+
+  ul > li {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.1rem 0.2rem;
+    margin-top: 0.3rem;
+    border-radius: 0.4rem;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+    font-family: "Poppins";
+  }
+
+  .inputbox {
+    border: solid rgba(0, 0, 0, 0.25) 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 0.4rem;
+  }
 }
-.bgRed{
-    @include completebtn();
-    background-color: red;
-    transition: .5s linear;
+
+.footer {
+  margin-top: 0.2rem;
+  font-family: "Poppins";
+  text-align: center;
+  span {
+    font-weight: 600;
+  }
+}
+
+.completed {
+  text-decoration: line-through;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.clr {
+  color: #0082c8;
+}
+
+@mixin completebtn {
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  border: none;
+  padding: 0.1rem 1rem;
+  border-radius: 0.3rem;
+  margin: 0.2rem 0;
+}
+
+.bgBlue {
+  @include completebtn();
+  background-color: #0082c8;
+  transition: 0.5s linear;
+}
+.bgRed {
+  @include completebtn();
+  background-color: red;
+  transition: 0.5s linear;
 }
