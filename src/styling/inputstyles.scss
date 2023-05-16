@@ -1,0 +1,8 @@
+@import "../styling/variables.scss";
+input{
+    background-color: transparent;
+    font-size: 1.5rem;
+    border: solid $theme-color 1px;
+    border-radius: 1rem;
+    padding:  $paddingX $paddingY;
+}
